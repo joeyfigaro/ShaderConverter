@@ -18,7 +18,7 @@ export function useWasm() {
                 // We assume the build process places the pkg in src/engine-pkg or compatible
                 // Dynamic import enables Code Splitting and init
                 // @ts-ignore - The module might not exist until build
-                const module = await import('../engine-pkg/shader_converter_engine.js');
+                const module = await import('../../engine/pkg/shader_converter_engine.js');
                 await module.default(); // Initialize the WASM memory
                 module.init_panic_hook();
                 setWasm(module as unknown as WasmModule);
